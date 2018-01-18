@@ -10,7 +10,12 @@ public class SafeDoubleCheckedLocking {
     if(instance == null) {
       synchronized (SafeDoubleCheckedLocking.class) {
         if(instance == null) {
-          instance = new Instance(); // instance 为volatile,现在没有问题了
+          // instance 为volatile,防止重排序
+          // new Instance() 这个操作可以理解为：
+          // memory = allocate() 分配对象的内存空间
+          // ctorInstance(memory) 初始化对象
+          // instance = memory 设置instance指向刚分配的内存地址
+          instance = new Instance();
         }
       }
     }

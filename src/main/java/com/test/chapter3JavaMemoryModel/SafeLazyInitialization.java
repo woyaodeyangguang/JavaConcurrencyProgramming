@@ -1,6 +1,5 @@
 package com.test.chapter3JavaMemoryModel;
 
-import com.test.chapter4basics.Synchronized;
 
 /**
  * 单例 利用synchronized修饰方法.

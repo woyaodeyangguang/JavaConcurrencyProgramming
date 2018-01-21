@@ -3,7 +3,8 @@ package com.test.chapter4basics;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Admin on 2017/11/28.
+ * 如果一个线程A执行了thread.join()语句，其含义是：
+ * 当前线程A等待thread线程终止之后才从thread.join()返回.
  */
 public class Join {
 

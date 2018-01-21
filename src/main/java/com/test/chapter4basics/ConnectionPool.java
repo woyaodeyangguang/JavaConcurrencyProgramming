@@ -6,10 +6,10 @@ import java.util.LinkedList;
 /**
  * 简单的数据库连接池
  */
-public class ConnectionPoll {
+public class ConnectionPool {
   private LinkedList<Connection> pool = new LinkedList<>();
 
-  public ConnectionPoll(int initialSize) {
+  public ConnectionPool(int initialSize) {
     if(initialSize > 0) {
       for (int i = 0; i < initialSize; i++) {
         pool.add(ConnectionDriver.createConnection());

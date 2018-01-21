@@ -4,7 +4,6 @@ import com.test.utils.SleepUtils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-import sun.util.locale.provider.TimeZoneNameUtility;
 
 /**
  * Created by Admin on 2017/11/28.

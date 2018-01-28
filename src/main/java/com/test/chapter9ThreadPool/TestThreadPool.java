@@ -1,8 +1,10 @@
 package com.test.chapter9ThreadPool;
 
+import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 线程池.
@@ -33,6 +35,11 @@ public class TestThreadPool {
     @Override
     public void run() {
       System.out.println(Thread.currentThread().getName() + "正在执行");
+      try {
+        Thread.currentThread().sleep(1000 * 3);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
     }
   }
 }

@@ -1,15 +1,13 @@
 package com.test.chapter9ThreadPool;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 线程池.
  */
 public class TestThreadPool {
+
 
   public static void main(String[] args) {
     //ExecutorService pool = Executors.newSingleThreadExecutor();

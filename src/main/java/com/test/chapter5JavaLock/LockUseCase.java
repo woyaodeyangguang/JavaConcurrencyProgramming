@@ -24,11 +24,13 @@ public class LockUseCase {
     Thread thread = new Thread(new Runnable() {
       @Override
       public void run() {
-        useCase();
+        // useCase();
+        useCaseTryLock();
       }
     }, "CustomRunnable");
     thread.start();
-    useCase();
+    // useCase();
+    useCaseTryLock();
   }
 
   /**
@@ -37,12 +39,30 @@ public class LockUseCase {
   public void useCase() {
     lock.lock();
     try {
-      System.out.println(Thread.currentThread().getName() +  " void something!");
+      System.out.println(Thread.currentThread().getName() +  " do something!");
       Thread.currentThread().sleep(4000);
     } catch (Exception e) {
     } finally {
       // 一定要unlock
-      lock.unlock();
+       lock.unlock();
+    }
+  }
+
+  /**
+   * Lock的tryLock()
+   */
+  public void useCaseTryLock() {
+    if(lock.tryLock()) {
+      try {
+        System.out.println(Thread.currentThread().getName() +  "获取到锁, do something!");
+        Thread.currentThread().sleep(4000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      } finally {
+        lock.unlock();
+      }
+    } else {
+      System.out.println(Thread.currentThread().getName() + "没有获取到锁");
     }
   }
 }

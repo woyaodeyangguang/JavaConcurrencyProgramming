@@ -9,7 +9,6 @@ public class TestReentrantLock {
 
   private static ReentrantLock lock = new ReentrantLock();
   public static void main(String[] args) {
-    TestReentrantLock instance = new TestReentrantLock();
     Thread thread1 = new Thread(new CustomRunnable(), "Thread1");
     Thread thread2 = new Thread(new CustomRunnable(), "Thread2");
     thread1.start();
@@ -28,7 +27,10 @@ public class TestReentrantLock {
     lock.lock();
     try{
       System.out.println(Thread.currentThread().getName() + "获取锁");
-    } finally {
+      Thread.currentThread().sleep(10000);
+    } catch (Exception e){
+      e.printStackTrace();
+    }finally {
       // 必须在finally中进行关闭,要不然代码块发生异常后，线程永远都不会释放锁
       lock.unlock();
     }
